@@ -1,0 +1,14 @@
+<app-counter-bubble
+  *ngIf="showBubble$ | async"
+  [counter]="userCounter" >
+</app-counter-bubble>
+
+<app-total-counter
+  *ngIf="!(showBubble$ | async)"
+  [counter]="totalCounter">
+</app-total-counter>
+
+<app-fab
+  (click)="userCounterChange.emit()"
+  [counter]="userCounter">
+</app-fab>
