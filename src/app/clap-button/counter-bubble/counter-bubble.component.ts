@@ -1,15 +1,10 @@
+import { transition, trigger, useAnimation } from '@angular/animations';
 import {
+  ChangeDetectionStrategy,
   Component,
   HostBinding,
-  Input,
-  ChangeDetectionStrategy
+  Input
 } from '@angular/core';
-import {
-  trigger,
-  transition,
-  useAnimation
-} from '@angular/animations';
-
 import {
   pulseAnimation,
   slideInAnimation,
@@ -24,30 +19,26 @@ import {
   animations: [
     trigger('visibilityChange', [
       transition(':enter', [
-        trigger('visibilityChange', [
-          transition(':enter', [
-            useAnimation(slideInAnimation, {
-              params: { from: '20%', timings: '200ms ease-in' }
-            })
-          ]),
-          transition(':leave', [
-            useAnimation(slideOutAnimation, {
-              params: { to: '-200%', timings: '200ms ease-in' }
-            })
-          ])
-        ]),
-        trigger('counterChange', [
-          transition(
-            ':increment',
-            useAnimation(pulseAnimation, {
-              params: {
-                timings: '200ms',
-                scale: 1.2
-              }
-            })
-          )
-        ])
+        useAnimation(slideInAnimation, {
+          params: { from: '20%', timings: '200ms ease-in' }
+        })
+      ]),
+      transition(':leave', [
+        useAnimation(slideOutAnimation, {
+          params: { to: '-200%', timings: '200ms ease-in' }
+        })
       ])
+    ]),
+    trigger('counterChange', [
+      transition(
+        ':increment',
+        useAnimation(pulseAnimation, {
+          params: {
+            timings: '200ms',
+            scale: 1.2
+          }
+        })
+      )
     ])
   ]
 })

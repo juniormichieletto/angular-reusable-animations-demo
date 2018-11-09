@@ -1,6 +1,7 @@
 :host {
     border: 1px solid rgba(0, 0, 0, 0.7);
-    color: #02b875;
+    background-color: white;
+    color: #b80202;
     width: 64px;
     height: 64px;
     border-radius: 50%;

@@ -40,5 +40,4 @@ export class ClapButtonComponent implements OnInit {
 
     this.showBubble$ = merge(showBubble$, hideBubble$);
   }
-
 }
